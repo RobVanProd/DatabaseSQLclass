@@ -1,11 +1,19 @@
 DROP TABLE IF EXISTS [Tavern];
+DROP TABLE IF EXISTS [Location];
 DROP TABLE IF EXISTS [Services];
 DROP TABLE IF EXISTS [Inventory];
 DROP TABLE IF EXISTS [Recieved];
 
 CREATE TABLE [Tavern] (
-	TavernId INT IDENTITY(1, 1),
+	TavernId INT PRIMARY AUTOINCREMENT IDENTITY(1, 1),
 	TavernName varchar(250) 
+	LocationID INT
+);
+CREATE TABLE [Location] (
+	LocationID INT IDENTITY(1,1),
+	Address varchar(250),
+	State varchar(2),
+	Zip INT
 );
 CREATE TABLE [Services] (
 	ID INT IDENTITY(1, 1),
@@ -31,3 +39,7 @@ CREATE TABLE [Recieved] (
 	AmountRec int,
 	Date datetime
 );
+
+
+ALTER TABLE [Tavern] ADD FOREIGN KEY (LocationID) References Locations(LocationId)
+ALTER TABLE [Services] ADD FOREIGN KEY (TavernId) References Tavern(ID)
