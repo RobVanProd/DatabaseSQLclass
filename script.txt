@@ -1,0 +1,33 @@
+DROP TABLE IF EXISTS [Tavern];
+DROP TABLE IF EXISTS [Services];
+DROP TABLE IF EXISTS [Inventory];
+DROP TABLE IF EXISTS [Recieved];
+
+CREATE TABLE [Tavern] (
+	TavernId INT IDENTITY(1, 1),
+	TavernName varchar(250) 
+);
+CREATE TABLE [Services] (
+	ID INT IDENTITY(1, 1),
+	Services varchar(250),
+ 	Status varchar(250),
+	Guest varcar(250),
+	Price varcar(250),
+	DatePur datetime,
+	AmountPur int,
+	TavernId int
+);
+CREATE TABLE [Inventory] (
+	SupplyId INT IDENTITY(1, 1),
+	TavernId varchar(250),
+	Updated datetime,
+	CurCount varchar(250)
+	 
+);
+CREATE TABLE [Recieved] (
+	SupplyId INT IDENTITY(1, 1),
+	TavernId varchar(250),
+	Cost int,
+	AmountRec int,
+	Date datetime
+);
