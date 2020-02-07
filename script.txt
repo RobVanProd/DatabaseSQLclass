@@ -41,5 +41,41 @@ CREATE TABLE [Recieved] (
 );
 
 
+CREATE TABLE [Guests] (
+	GuestId INT Primary,
+	GuestNotes VARCHAR(250),
+	Birthday DATETIME,
+	CakeDay DATETIME,
+	GuestStatusId
+
+);
+CREATE TABLE [Status](
+	StatusId INT PRIMARY,
+	Status VARCHAR,
+	
+);
+
+CREATE TABLE [Classes](
+	ClassesId INT PRIMARY,
+	Class VARCHAR
+
+
+);
+
+CREATE TABLE [GuestClass] (
+	GuestId INT,
+	Level INT,
+	ClassID INT
+);
+
+
+
+
 ALTER TABLE [Tavern] ADD FOREIGN KEY (LocationID) References Locations(LocationId)
 ALTER TABLE [Services] ADD FOREIGN KEY (TavernId) References Tavern(ID)
+
+
+ALTER TABLE [GuestClass] ADD FOREIGN KEY (GuestID) References Guest(GuestId)
+
+ALTER TABLE [GuestClasses] ADD FOREIGN KEY (ClassId) References Classes(ClassesID)
+ 
